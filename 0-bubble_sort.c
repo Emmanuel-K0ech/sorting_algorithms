@@ -1,42 +1,26 @@
-#include <stddef.h>
-#include <stdio.h>
+#include "sort.h"
 /**
- * bubble_sort - implemenation of bubble sort algorithm
- * @array: array to sort
- * @size: size of array
- */
+* bubble_sort - sort array Elements - minimum to maximum
+* @array: array
+* @size: array size
+* Return: void
+*/
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j, k;
 
-	int temp = 0;
+	size_t x, index, tmp = 0;
 
-	int count = 0;
-
-	j = 0;
-	while (j != size - 1)
-	{
-		for (i = 0; i < size - 1; i++)
+	if (size < 2)
+		return;
+	for (x = 0; x < size; x++)
+		for (index = 0; index < size; index++)
 		{
-			if (array[i] > array[i + 1])
+			if (array[index] > array[index + 1] && array[index + 1])
 			{
-				temp = array[i];
-				array[i] = array[i + 1];
-				array[i + 1] = temp;
-
-				for (k = 0; k < size; k++)
-				{
-					if (k == size - 1)
-						printf("%d", array[k]);
-					else
-						printf("%d, ", array[k]);
-				}
-				printf("\n");
-			}
-			else
-			{
-				count++;
+			tmp = array[index];
+			array[index] = array[index + 1];
+			array[index + 1] = tmp;
+			print_array(array, size);
 			}
 		}
-	}
 }
