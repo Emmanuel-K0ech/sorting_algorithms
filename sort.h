@@ -35,7 +35,7 @@ typedef struct listint_s
 } listint_t;
 
 /* Helper Functions - Printing */
-void array_print(const int *array, size_t size);
+void print_array(const int *array, size_t size);
 
 void list_print(const listint_t *list);
 
